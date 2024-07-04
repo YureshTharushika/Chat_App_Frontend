@@ -1,0 +1,14 @@
+<!-- home.component.html -->
+<mat-sidenav-container>
+    <mat-sidenav mode="side" opened>
+      <mat-toolbar>Menu</mat-toolbar>
+      <mat-nav-list>
+        <a mat-list-item routerLink="/home/privatechats">Chats</a>
+        <a mat-list-item routerLink="/home/groupchats">Groups</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

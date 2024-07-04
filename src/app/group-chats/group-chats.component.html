@@ -1,0 +1,12 @@
+<!-- groups.component.html -->
+<mat-toolbar>
+    Groups
+    <span class="spacer"></span>
+    <button mat-icon-button (click)="openNewGroupDialog()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </mat-toolbar>
+  <mat-list>
+    <mat-list-item *ngFor="let group of groups">{{ group }}</mat-list-item>
+  </mat-list>
+  
