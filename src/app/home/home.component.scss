@@ -1,0 +1,21 @@
+/* home.component.scss */
+.sidenav-container {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .sidenav {
+    width: 30%;
+    border-right: 1px solid #ddd;
+  }
+  
+  .tab-group {
+    width: 100%;
+  }
+  
+  .sidenav-content {
+    width: 70%;
+    padding: 16px;
+  }
+  

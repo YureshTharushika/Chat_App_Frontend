@@ -27,16 +27,18 @@ export class SigninComponent {
 
   signin(): void {
     if (this.signinForm.valid) {
-      this.authService.signIn(this.signinForm.value).subscribe(
+      this.authService.signIn({ email: this.signinForm.value.email, password: this.signinForm.value.password }).subscribe(
         response => {
-          this.router.navigate(['/home']);
+          localStorage.setItem('access_token', response.accessToken);
+          localStorage.setItem('refresh_token', response.refreshToken);
+          this.router.navigate(['/home/privatechats']);
         },
         error => {
           console.error('Login failed', error);
         }
       );
     }
-    console.log(this.signinForm.value);
+    
   }
 
 }

@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { NewChatDialogComponent } from '../new-chat-dialog/new-chat-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-private-chats',
   standalone: true,
-  imports: [],
+  imports: [MatToolbarModule, MatListModule, MatIconModule, CommonModule],
   templateUrl: './private-chats.component.html',
   styleUrl: './private-chats.component.scss'
 })
@@ -16,7 +20,7 @@ export class PrivateChatsComponent implements OnInit {
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    
   }
 
   openNewChatDialog(): void {

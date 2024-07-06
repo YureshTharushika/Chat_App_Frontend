@@ -1,11 +1,10 @@
 <div>
-    <input [(ngModel)]="user" placeholder="User" />
-    <input [(ngModel)]="message" placeholder="Message" />
-    <button (click)="sendMessage()">Send</button>
+  <h3>Welcome, {{ user }}</h3>
+  <input [(ngModel)]="message" placeholder="Message" />
+  <button (click)="sendMessage()">Send</button>
+</div>
+<div>
+  <div *ngFor="let msg of chatService.messages | async">
+    <strong>{{ msg.user }}:</strong> {{ msg.message }}
   </div>
-  <div>
-    <ul>
-      <li *ngFor="let msg of chatService.messages">{{ msg }}</li>
-    </ul>
-  </div>
-  
+</div>

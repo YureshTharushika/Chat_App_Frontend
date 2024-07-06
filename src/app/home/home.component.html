@@ -1,14 +1,24 @@
-<!-- home.component.html -->
-<mat-sidenav-container>
-    <mat-sidenav mode="side" opened>
-      <mat-toolbar>Menu</mat-toolbar>
-      <mat-nav-list>
-        <a mat-list-item routerLink="/home/privatechats">Chats</a>
-        <a mat-list-item routerLink="/home/groupchats">Groups</a>
-      </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content>
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-  
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened class="sidenav">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-tab-group class="tab-group">
+      <mat-tab label="Private Chats">
+        <mat-nav-list>
+          <mat-list-item *ngFor="let chat of privateChats" (click)="selectChat(chat)">{{ chat }}</mat-list-item>
+        </mat-nav-list>
+      </mat-tab>
+      <mat-tab label="Group Chats">
+        <mat-nav-list>
+          <mat-list-item *ngFor="let group of groups" (click)="selectChat(group)">{{ group }}</mat-list-item>
+        </mat-nav-list>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-sidenav>
+  <mat-sidenav-content class="sidenav-content">
+    <ng-container *ngIf="selectedChat">
+      <h2>{{ selectedChat }}</h2>
+      <!-- Add your chat component or chat details here -->
+      <app-chat></app-chat>
+    </ng-container>
+  </mat-sidenav-content>
+</mat-sidenav-container>
